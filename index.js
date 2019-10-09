@@ -193,3 +193,48 @@ function sumAndProduct() {
     arr.length = 0;
   };
 })();
+
+// 14. Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity).
+
+(function() {
+  const arr = [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6];
+  const x = [...new Set(arr)].sort();
+  // console.log(x);
+})();
+
+// 15. We have the following arrays :
+(function() {
+  const color = [
+    "Blue ",
+    "Green",
+    "Red",
+    "Orange",
+    "Violet",
+    "Indigo",
+    "Yellow "
+  ];
+
+  function Ordinal(n) {
+    const o = ["th", "st", "nd", "rd"];
+    const x = n % 100;
+    return x + (o[(x - 20) % 10] || o[x] || o[0]);
+  }
+
+  for (n = 0; n < color.length; n++) {
+    const ordinal = n + 1;
+
+    const output = `${Ordinal(ordinal)} choice is ${color[n]}.`;
+
+    // console.log(output);
+  }
+})();
+
+// 16. Find the leap years in a given range of years.
+
+(function(x, y) {
+  for (let i = x; i <= y; i++) {
+    if ((i % 4 === 0 && i % 100 !== 0) || i % 400 === 0) {
+      // console.log(i);
+    }
+  }
+})(1990, 2019);
