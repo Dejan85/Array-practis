@@ -127,4 +127,65 @@ function textTransform(x) {
   console.log(text);
 }
 
-textTransform("The Quick Brown Fox");
+// textTransform("The Quick Brown Fox");
+
+// 10. Write a JavaScript program which prints the elements of the following array.
+
+function table() {
+  const a = [
+    [1, 2, 1, 24],
+    [8, 11, 9, 4],
+    [7, 0, 7, 27],
+    [7, 4, 28, 14],
+    [3, 10, 26, 7]
+  ];
+
+  const x = a.map((item, index) => {
+    item.unshift(`\n row: ${index}`);
+    return item.join("\n");
+  });
+
+  console.log(x.join("\n"));
+}
+
+// table();
+
+// 11. Write a JavaScript program to find the sum of squares of a numeric vector.
+function sum_sq(array) {
+  var sum = 0,
+    i = array.length;
+  while (i--) sum += Math.pow(array[i], 2);
+  return sum;
+}
+
+// console.log(sum_sq([0, 1, 2, 3, 4]));
+
+// 12. Write a JavaScript program to compute the sum and product of an array of integers.
+function sumAndProduct() {
+  const arr = [1, 2, 3, 4, 5, 6];
+  const sum = arr.reduce((accu, item) => accu + item);
+  const product = arr.reduce((accu, item) => accu * item);
+
+  console.log(`Sum is: ${sum}, \nProduct is: ${product}`);
+}
+
+// sumAndProduct();
+
+// 13. Write a JavaScript program to add items in an blank array and display the items.
+
+(function() {
+  const input = document.querySelector(".input");
+  const btnAdd = document.querySelector(".add");
+  const btnDisplay = document.querySelector(".display");
+  const show = document.querySelector(".show");
+  const arr = [];
+
+  btnAdd.onclick = () => {
+    arr.push(input.value);
+    input.value = "";
+  };
+
+  btnDisplay.onclick = () => {
+    show.innerHTML = arr;
+  };
+})();
