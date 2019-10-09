@@ -238,3 +238,14 @@ function sumAndProduct() {
     }
   }
 })(1990, 2019);
+
+// 17. Write a JavaScript program to shuffle an array.
+(function() {
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  arr.sort(a => {
+    return Math.floor(Math.random() * arr.length) - a;
+  });
+
+  console.log(arr);
+})();
