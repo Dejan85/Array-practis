@@ -179,13 +179,17 @@ function sumAndProduct() {
   const btnDisplay = document.querySelector(".display");
   const show = document.querySelector(".show");
   const arr = [];
+  let index = 0;
 
   btnAdd.onclick = () => {
-    arr.push(input.value);
+    arr.push(`Element ${index} = ${input.value}</br>`);
+    index++;
+    alert(`Element ${input.value} added at index ${index}`);
     input.value = "";
   };
 
   btnDisplay.onclick = () => {
-    show.innerHTML = arr;
+    show.innerHTML += arr.join(" ");
+    arr.length = 0;
   };
 })();
