@@ -37,14 +37,8 @@ function first(arr, num) {
 
 // 4. Write a JavaScript function to get the last element of an array. Passing a parameter 'n' will return the last 'n' elements of the array.
 function last(arr, num) {
-  if (!num) {
-    return arr[arr.length - 1];
-  }
-
-  return arr
-    .reverse()
-    .slice(0, num)
-    .reverse();
+  if (!num) return arr[arr.length - 1];
+  return arr.slice(-num);
 }
 
 // console.log(last([7, 9, 0, -2]));
@@ -79,17 +73,58 @@ function phoneNuber(num) {
 // console.log(phoneNuber("02546854234"));
 
 // 7. Write a JavaScript program to sort the items of an array.
-const arr1 = [3, 8, 7, 6, 5, -4, -3, 2, 1];
+function sortItem() {
+  const arr1 = [3, 8, 7, 6, 5, -4, -3, 2, 1];
 
-const x = arr1.sort((a, b) => {
-  return a - b;
-});
+  const x = arr1.sort((a, b) => {
+    return a - b;
+  });
 
-// console.log(x);
+  return x;
+}
+
+// console.log(sortItem());
 
 // 8. Write a JavaScript program to find the most frequent item of an array.
-const arr2 = [3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3];
 
-const xad = new String(2);
+function mostFrequent() {
+  const arr2 = [3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3].sort();
+  const obj = {};
+  let counter = 1;
 
-console.log(!!"xad");
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr2[i] === arr2[i + 1]) {
+      obj[arr2[i]] = ++counter;
+    } else {
+      counter = 1;
+    }
+  }
+
+  const objValue = Object.values(obj);
+  const max = Math.max(...objValue);
+
+  for (prop in obj) {
+    if (obj[prop] === max) {
+      mostFrequentValue = prop;
+    }
+  }
+
+  return console.log(`Most frequent ${mostFrequentValue}, in total ${max}`);
+}
+
+// mostFrequent();
+
+// 9. Write a JavaScript program which accept a string as input and swap the case of each character. For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.
+
+function textTransform(x) {
+  const text = x
+    .split("")
+    .map(item =>
+      item.toUpperCase() === item ? item.toLowerCase() : item.toUpperCase()
+    )
+    .join("");
+
+  console.log(text);
+}
+
+textTransform("The Quick Brown Fox");
