@@ -247,5 +247,68 @@ function sumAndProduct() {
     return Math.floor(Math.random() * arr.length) - a;
   });
 
-  console.log(arr);
+  // console.log(arr);
 })();
+
+// 18. Write a JavaScript program to perform a binary search.
+
+(function() {
+  function binary_Search(items, value) {
+    var firstIndex = 0,
+      lastIndex = items.length - 1,
+      middleIndex = Math.floor((lastIndex + firstIndex) / 2);
+
+    while (items[middleIndex] != value && firstIndex < lastIndex) {
+      if (value < items[middleIndex]) {
+        lastIndex = middleIndex - 1;
+      } else if (value > items[middleIndex]) {
+        firstIndex = middleIndex + 1;
+      }
+      middleIndex = Math.floor((lastIndex + firstIndex) / 2);
+    }
+
+    return items[middleIndex] != value ? -1 : middleIndex;
+  }
+  var items = [1, 2, 3, 4, 5, 7, 8, 9];
+  // console.log(binary_Search(items, 1));
+  // console.log(binary_Search(items, 5));
+})();
+
+// 19. There are two arrays with individual values, write a JavaScript program to compute the sum of each individual index value from the given arrays.
+
+(function() {
+  const arr = [1, 0, 2, 3, 4];
+  const arr2 = [3, 5, 6, 7, 8, 13, 34, 45, 56, 5, 6, 7, 8];
+  let arr3;
+  let arr4;
+  const sum = [];
+
+  function check(arr, arr2) {
+    if (arr.length < arr2.length) {
+      arr3 = arr2;
+      arr4 = arr;
+    } else {
+      arr3 = arr;
+      arr4 = arr2;
+    }
+
+    arr3.forEach((item, index) => {
+      if (item + arr4[index]) {
+        return sum.push(item + arr4[index]);
+      } else {
+        sum.push(item);
+      }
+    });
+    console.log(sum);
+    return sum;
+  }
+
+  check(arr, arr2);
+})();
+
+// const arr = [1, 0, 2, 3, 4];
+// const arr2 = [3, 5, 6, 7, 8, 13, 3, 4, 5, 6, 7];
+
+// const x = arr2.slice(arr.length);
+
+// console.log(x);
