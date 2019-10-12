@@ -306,9 +306,13 @@ function sumAndProduct() {
   check(arr, arr2);
 })();
 
-// const arr = [1, 0, 2, 3, 4];
-// const arr2 = [3, 5, 6, 7, 8, 13, 3, 4, 5, 6, 7];
+// 20. Write a JavaScript program to find duplicate values in a JavaScript array.
 
-// const x = arr2.slice(arr.length);
+(function() {
+  function find_duplicate_in_array(arr) {
+    const x = [...new Set(arr)];
+    console.log(x);
+  }
 
-// console.log(x);
+  find_duplicate_in_array([1, 2, -2, 4, 5, 4, 7, 8, 7, 7, 71, 3, 6]);
+})();
