@@ -360,7 +360,17 @@ function sumAndProduct() {
     return duplicate;
   }
 
-  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
-  console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]));
-  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+  // console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+  // console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]));
+  // console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+})();
+
+// 24. Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array.
+
+(function() {
+  function removeFalse(arr) {
+    return arr.filter(Boolean);
+  }
+
+  console.log(removeFalse([NaN, 0, 15, false, -22, "", undefined, 47, null]));
 })();
