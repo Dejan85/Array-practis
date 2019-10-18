@@ -1,3 +1,5 @@
+"use strict";
+
 // 1. Write a JavaScript function to check whether an `input` is an array or not.
 function is_array(input) {
   return Array.isArray(input);
@@ -173,26 +175,26 @@ function sumAndProduct() {
 
 // 13. Write a JavaScript program to add items in an blank array and display the items.
 
-(function() {
-  const input = document.querySelector(".input");
-  const btnAdd = document.querySelector(".add");
-  const btnDisplay = document.querySelector(".display");
-  const show = document.querySelector(".show");
-  const arr = [];
-  let index = 0;
+// (function() {
+//   const input = document.querySelector(".input");
+//   const btnAdd = document.querySelector(".add");
+//   const btnDisplay = document.querySelector(".display");
+//   const show = document.querySelector(".show");
+//   const arr = [];
+//   let index = 0;
 
-  btnAdd.onclick = () => {
-    arr.push(`Element ${index} = ${input.value}</br>`);
-    index++;
-    alert(`Element ${input.value} added at index ${index}`);
-    input.value = "";
-  };
+//   btnAdd.onclick = () => {
+//     arr.push(`Element ${index} = ${input.value}</br>`);
+//     index++;
+//     alert(`Element ${input.value} added at index ${index}`);
+//     input.value = "";
+//   };
 
-  btnDisplay.onclick = () => {
-    show.innerHTML += arr.join(" ");
-    arr.length = 0;
-  };
-})();
+//   btnDisplay.onclick = () => {
+//     show.innerHTML += arr.join(" ");
+//     arr.length = 0;
+//   };
+// })();
 
 // 14. Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity).
 
@@ -220,7 +222,7 @@ function sumAndProduct() {
     return x + (o[(x - 20) % 10] || o[x] || o[0]);
   }
 
-  for (n = 0; n < color.length; n++) {
+  for (let n = 0; n < color.length; n++) {
     const ordinal = n + 1;
 
     const output = `${Ordinal(ordinal)} choice is ${color[n]}.`;
@@ -299,7 +301,6 @@ function sumAndProduct() {
         sum.push(item);
       }
     });
-    console.log(sum);
     return sum;
   }
 
@@ -311,8 +312,55 @@ function sumAndProduct() {
 (function() {
   function find_duplicate_in_array(arr) {
     const x = [...new Set(arr)];
-    console.log(x);
   }
 
   find_duplicate_in_array([1, 2, -2, 4, 5, 4, 7, 8, 7, 7, 71, 3, 6]);
+})();
+
+// 21. Write a JavaScript program to flatten a nested (any depth) array. If you pass shallow, the array will only be flattened a single level.
+
+(function() {
+  function flatten() {
+    if (!arguments[1]) {
+      return arguments[0].flat(Infinity);
+    }
+
+    return arguments[0].flat();
+  }
+
+  // console.log(flatten([1, [2], [3, [[4]]], [5, 6]]));
+  // console.log(flatten([1, [2], [3, [[4]]], [5, 6]], true));
+})();
+
+// 22. Write a JavaScript program to compute the union of two arrays
+
+(function() {
+  function union() {
+    return [...new Set(arguments[0].concat(arguments[1]))].sort(
+      (a, b) => a - b
+    );
+  }
+
+  //   console.log(union([1, 2, 3], [100, 2, 1, 10]));
+})();
+
+// 23. Write a JavaScript function to find the difference of two arrays.
+
+(function() {
+  function difference(a, b) {
+    const arr = [...a, ...b];
+    const duplicate = [];
+
+    arr.flat(Infinity).forEach((item, index, arr) => {
+      if (arr.lastIndexOf(item) === arr.indexOf(item)) {
+        duplicate.push(item);
+      }
+    });
+
+    return duplicate;
+  }
+
+  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+  console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]], [5, 6]]));
+  console.log(difference([1, 2, 3], [100, 2, 1, 10]));
 })();
